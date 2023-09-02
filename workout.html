@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lift Log</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="webScript.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <ul>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <div class="dropdown-bars">
+                            <div class="one"></div>
+                            <div class="two"></div>
+                            <div class="three"></div>
+                        </div>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./newWorkout.html">Create Workout</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </li>
+            <div class="topnav-centered">
+                <li><a href="./index.html">Lift Log</a></li>
+            </div>
+        </ul>
+    </div>
+
+    <div class="upcoming">
+        <p>Today</p>
+        <table>
+            <tr>
+                <th></th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Prev. Weight</th>
+                <th>Curr. Weight</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Squats</td>
+                <td>3</td>
+                <td>6</td>
+                <td>295</td>
+                <td>315</td>
+                <td>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="hidden-checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>RDL</td>
+                <td>3</td>
+                <td>8</td>
+                <td>185</td>
+                <td>185</td>
+                <td>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="hidden-checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="yourWorkouts">
+            Your Workouts
+        </div>
+    </div>
+
+    <div class="workoutOptions">
+        <a href="./newWorkout.html"><button class="createNewWorkout"><span>Create New Workout</span></button></a>
+        <button class="browseWorkouts"><span>Browse Popular Workouts</span></button>
+    </div>
+
+</body>
+
+</html>
