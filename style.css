@@ -330,3 +330,26 @@ label {
     color: #a3a3a3;
 }
 
+.saveExercise {
+    padding-left: 250px;
+}
+
+.saveExercise button{
+    width: 75px;
+    height: 25px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #a3a3a3;
+}
+
+.saveExercise button:hover {
+    color: #000000;
+}
+
+.saveExercise button:active {
+    color: #a3a3a3;
+}
+

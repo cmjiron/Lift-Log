@@ -37,3 +37,23 @@ document.addEventListener("DOMContentLoaded", function () {
     itemList.appendChild(clone);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('saveWorkoutButton').addEventListener('click', function () {
+    document.querySelectorAll('form').forEach((form, index) => {
+      const formData = new FormData(form);
+
+      fetch('/submit', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(`Response from Form ${index + 1}:`, data);
+        })
+        .catch((error) => {
+          console.error(`Error from Form ${index + 1}:`, error);
+        });
+    });
+  });
+});
