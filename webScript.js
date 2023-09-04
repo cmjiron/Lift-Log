@@ -38,35 +38,41 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const formsData = []; // Array to store form data
 document.addEventListener('DOMContentLoaded', function () {
-  const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
-  const exerciseList = document.getElementById('exerciseList');
+  // const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
+  // const exerciseList = document.getElementById('exerciseList');
 
-  createNewWorkoutButton.addEventListener('click', function () {
-    // Get input values from the form
-    const exerciseInput = document.getElementById('exercise');
-    const setsInput = document.getElementById('sets');
-    const repsInput = document.getElementById('reps');
+  // createNewWorkoutButton.addEventListener('click', function () {
+  //   // Get input values from the form
+  //   const exerciseInput = document.getElementById('exercise');
+  //   const setsInput = document.getElementById('sets');
+  //   const repsInput = document.getElementById('reps');
 
-    const exerciseValue = exerciseInput.value;
-    const setsValue = setsInput.value;
-    const repsValue = repsInput.value;
+  //   const exerciseValue = exerciseInput.value;
+  //   const setsValue = setsInput.value;
+  //   const repsValue = repsInput.value;
 
-    // Clear the input fields
-    exerciseInput.value = '';
-    setsInput.value = '';
-    repsInput.value = '';
+  //   // Clear the input fields
+  //   exerciseInput.value = '';
+  //   setsInput.value = '';
+  //   repsInput.value = '';
+  const ulElement = document.getElementById('exerciseList');
+  const forms = ulElement.querySelectorAll('form');
+    forms.forEach((form) => {
+      const formData = new FormData(form);
+      const exercise = formData.get('exercise');
+      const sets = formData.get('sets');
+      const reps = formData.get('reps');
+      formsData.push({ exercise, sets, reps });
+    });
 
     fetch('http://localhost:3000/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        exercise: exerciseValue,
-        sets: setsValue,
-        reps: repsValue,
-      }),
+      body: JSON.stringify(formsData),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -76,4 +82,4 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
       });
   });
-});
+//});
