@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const createNewWorkoutButton = document.getElementById('createNewWorkoutButton');
+  const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
   const exerciseList = document.getElementById('exerciseList');
 
   createNewWorkoutButton.addEventListener('click', function () {
