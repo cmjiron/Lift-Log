@@ -288,19 +288,20 @@ section button:hover {
     font-size: 35px;
 }
 
-.exercise1 {
+.exercises {
     padding-top: 10px;
     padding-left: 250px;
 }
 
-.exercise1 input,
+.exercises input,
 label {
     border: none;
     outline: none;
     font-size: large;
+    padding-top: 10px;
 }
 
-.exercise1 #sets,
+.exercises #sets,
 #reps {
     width: 50px;
     text-align: center;

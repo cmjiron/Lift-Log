@@ -52,13 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const setsValue = setsInput.value;
     const repsValue = repsInput.value;
 
-    // Create a new list item with the input values
-    const listItem = document.createElement('li');
-    listItem.textContent = `Exercise: ${exerciseValue}, Sets: ${setsValue}, Reps: ${repsValue}`;
-
-    // Append the new list item to the exerciseList
-    exerciseList.appendChild(listItem);
-
     // Clear the input fields
     exerciseInput.value = '';
     setsInput.value = '';
