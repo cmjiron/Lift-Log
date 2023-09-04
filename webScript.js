@@ -39,21 +39,48 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('saveWorkoutButton').addEventListener('click', function () {
-    document.querySelectorAll('form').forEach((form, index) => {
-      const formData = new FormData(form);
+  const createNewWorkoutButton = document.getElementById('createNewWorkoutButton');
+  const exerciseList = document.getElementById('exerciseList');
 
-      fetch('http://localhost:3000/submit', {
-        method: 'POST',
-        body: formData,
+  createNewWorkoutButton.addEventListener('click', function () {
+    // Get input values from the form
+    const exerciseInput = document.getElementById('exercise');
+    const setsInput = document.getElementById('sets');
+    const repsInput = document.getElementById('reps');
+
+    const exerciseValue = exerciseInput.value;
+    const setsValue = setsInput.value;
+    const repsValue = repsInput.value;
+
+    // Create a new list item with the input values
+    const listItem = document.createElement('li');
+    listItem.textContent = `Exercise: ${exerciseValue}, Sets: ${setsValue}, Reps: ${repsValue}`;
+
+    // Append the new list item to the exerciseList
+    exerciseList.appendChild(listItem);
+
+    // Clear the input fields
+    exerciseInput.value = '';
+    setsInput.value = '';
+    repsInput.value = '';
+
+    fetch('http://localhost:3000/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        exercise: exerciseValue,
+        sets: setsValue,
+        reps: repsValue,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Response from server:', data);
       })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(`Response from Form ${index + 1}:`, data);
-        })
-        .catch((error) => {
-          console.error(`Error from Form ${index + 1}:`, error);
-        });
-    });
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   });
 });
