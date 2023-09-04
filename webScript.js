@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('form').forEach((form, index) => {
       const formData = new FormData(form);
 
-      fetch('/submit', {
+      fetch('http://localhost:3000/submit', {
         method: 'POST',
         body: formData,
       })
