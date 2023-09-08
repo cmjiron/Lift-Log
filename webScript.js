@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log('Successfull Login', data);
+          console.log('Successful Login', data);
           window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html';
         } else {
           console.log('Error logging in');
