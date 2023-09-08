@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const username = formData.get('username');
       const password = formData.get('password');
       const email = formData.get('email');
+      formsData.push({fname, lname, username, password, email});
 
     fetch('http://localhost:3000/register', {
       method: 'POST',
