@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginButton = document.getElementById('loginButton');
   loginButton.addEventListener('click', function () {
     // Send the login data to the server for authentication
-    fetch('http://localhost:3000/register', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
