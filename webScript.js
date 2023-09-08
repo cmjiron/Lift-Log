@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const formsData = []; // Array to store form data
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
 
   createNewWorkoutButton.addEventListener('click', function () {
+    const formsData = [];
     const ulElement = document.getElementById('exerciseList');
     const forms = ulElement.querySelectorAll('form');
     forms.forEach((form) => {
@@ -74,15 +74,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const createAccountButton = document.getElementById('createAccountButton');
 
   createAccountButton.addEventListener('click', function () {
+    const formsData = [];
     const form = document.getElementById('registerForm');
-
-      const formData = new FormData(form);
-      const fname = formData.get('fname');
-      const lname = formData.get('lname');
-      const username = formData.get('username');
-      const password = formData.get('password');
-      const email = formData.get('email');
-      formsData.push({fname, lname, username, password, email});
+    const formData = new FormData(form);
+    const fname = formData.get('fname');
+    const lname = formData.get('lname');
+    const username = formData.get('username');
+    const password = formData.get('password');
+    const email = formData.get('email');
+    formsData.push({ fname, lname, username, password, email });
 
     fetch('http://localhost:3000/register', {
       method: 'POST',
