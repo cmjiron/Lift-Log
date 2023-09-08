@@ -104,12 +104,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*---------------------------------------------------------------------------Login------------------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('loginForm').addEventListener('click', function (e) {
-    e.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const loginButton = document.getElementById('loginButton');
+  loginButton.addEventListener('click', function () {
     // Send the login data to the server for authentication
     fetch('/login', {
       method: 'POST',
