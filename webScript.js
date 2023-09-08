@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({formsData}),
+      body: JSON.stringify(formsData),
     })
       .then((response) => response.json())
       .then((data) => {
