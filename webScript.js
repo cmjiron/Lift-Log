@@ -41,22 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
 const formsData = []; // Array to store form data
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
-  // const exerciseList = document.getElementById('exerciseList');
 
   createNewWorkoutButton.addEventListener('click', function () {
-    //   // Get input values from the form
-    //   const exerciseInput = document.getElementById('exercise');
-    //   const setsInput = document.getElementById('sets');
-    //   const repsInput = document.getElementById('reps');
-
-    //   const exerciseValue = exerciseInput.value;
-    //   const setsValue = setsInput.value;
-    //   const repsValue = repsInput.value;
-
-    //   // Clear the input fields
-    //   exerciseInput.value = '';
-    //   setsInput.value = '';
-    //   repsInput.value = '';
     const ulElement = document.getElementById('exerciseList');
     const forms = ulElement.querySelectorAll('form');
     forms.forEach((form) => {
@@ -73,6 +59,36 @@ document.addEventListener('DOMContentLoaded', function () {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formsData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Response from server:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const createAccountButton = document.getElementById('createAccountButton');
+
+  createAccountButton.addEventListener('click', function () {
+    const form = document.getElementById('registerForm');
+
+      const formData = new FormData(form);
+      const fname = formData.get('fname');
+      const lname = formData.get('lname');
+      const username = formData.get('username');
+      const password = formData.get('password');
+      const email = formData.get('email');
+
+    fetch('http://localhost:3000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((data) => {

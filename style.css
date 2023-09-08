@@ -11,6 +11,10 @@ body {
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fdfdfe;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f0f0f0;
 }
 
 /*INDEX*/
@@ -24,10 +28,18 @@ body {
 }
 
 
-li a {
+.topnav-centered li a {
     display: block;
     color: rgb(0, 0, 0);
     padding: 14px 16px;
+    text-decoration: none;
+}
+
+.account li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding-top: 8px;
+    padding-right: 20px;
     text-decoration: none;
 }
 
@@ -36,15 +48,26 @@ li a {
     float: left;
 }
 
+.account {
+    float: right;
+}
+
 .topnav-centered a {
+    width: 200px;
     font-size: x-large;
     float: none;
     position: relative;
-    left: 94%;
+    left: 51%;
     -webkit-transform: translate(-50%);
     transform: translate(-50%);
 }
 
+/*Account Icon*/
+.account i {
+    font-size: 36px;
+}
+
+/*Dropdown*/
 .dropdown-bars {
     width: 50px;
     display: block;
@@ -335,7 +358,7 @@ label {
     padding-left: 250px;
 }
 
-.saveExercise button{
+.saveExercise button {
     width: 75px;
     height: 25px;
     font-size: 15px;
@@ -352,5 +375,68 @@ label {
 
 .saveExercise button:active {
     color: #a3a3a3;
+}
+
+/*Account Login/Registration*/
+h2 {
+    text-align: center;
+}
+
+.accountField {
+    text-align: center;
+    padding: 20px;
+}
+
+.accountField input[type=text] {
+    margin: 10px 0;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+.accountField label {
+    left: 20px;
+}
+
+.accountField button {
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    width: 100px;
+    color: white;
+}
+
+.accountField button a{
+    text-decoration: none;
+    color: white;
+}
+
+.accountField #registerButton {
+    background-color: gray;
+}
+
+.accountField #loginButton, #createAccountButton {
+    background-color: green;
+}
+
+.accountField #registerButton:hover {
+    background-color: rgb(59, 59, 59);
+    cursor: pointer;
+}
+
+.accountField #loginButton:hover, #createAccountButton:hover {
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+#registerHeading{
+    padding-top: 50px;
+}
+
+#registerForm{
+    text-align: left;
+    display: inline-block;
 }
 
