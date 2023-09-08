@@ -91,8 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formsData),
-    })
-      .then((response) => response.json())
+    }).then((response) => response.json())
       .then((data) => {
         console.log('Response from server:', data);
       })
@@ -121,9 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       body: JSON.stringify(formsData),
     })
-      .then((response) => {
-        console.log('Response');
-        response.json()})
+      .then((response) => {return response.json()})
       .then((data) => {
         console.log('Successful Login', data);
         window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html';
