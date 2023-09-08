@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+/*-------------------------------------------------------------------Register New User----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   const createAccountButton = document.getElementById('createAccountButton');
 
@@ -99,4 +100,34 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
       });
   });
+});
+
+/*---------------------------------------------------------------------------Login------------------------------------------------------------------------------------- */
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Send the login data to the server for authentication
+  fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username, password }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        // Redirect to a protected page or show a success message
+        window.location.href = '/dashboard';
+      } else {
+        // Display an error message
+        document.getElementById('message').textContent = data.message;
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 });
