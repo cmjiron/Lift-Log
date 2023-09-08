@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Append the clone to the ul element
     itemList.appendChild(clone);
   })
-})
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
@@ -60,7 +60,10 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       body: JSON.stringify(formsData),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
       .then((data) => {
         console.log('Response from server:', data);
       })
