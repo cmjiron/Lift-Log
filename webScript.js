@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('dayForm');
 
   // Get the textarea element
-  var messageInput = form.querySelector('#day');
+  var messageInput = form.querySelector('#day')
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 
   // Set the default text
   var defaultText = "Day 1";
@@ -35,8 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Append the clone to the ul element
     itemList.appendChild(clone);
-  });
-});
+  })
+})
+.catch((error) => {
+  console.error('Error:', error);
+});;
 
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
@@ -68,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
       });
   });
+})
+.catch((error) => {
+  console.error('Error:', error);
 });
 
 /*-------------------------------------------------------------------Register New User----------------------------------------------------------------------------- */
@@ -131,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Received token:', data.token);
           }
 
-          window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html';
+          window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html'; // Replace with your desired URL
         }
       })
   })
