@@ -120,8 +120,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        // Redirect to a protected page or show a success message
-        window.location.href = '/dashboard';
+        window.location.href = './index.html';
       } else {
         // Display an error message
         document.getElementById('message').textContent = data.message;
