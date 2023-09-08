@@ -3,10 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('dayForm');
 
   // Get the textarea element
-  var messageInput = form.querySelector('#day')
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+  var messageInput = form.querySelector('#day');
 
   // Set the default text
   var defaultText = "Day 1";
@@ -40,9 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     itemList.appendChild(clone);
   })
 })
-.catch((error) => {
-  console.error('Error:', error);
-});;
 
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
@@ -75,9 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 })
-.catch((error) => {
-  console.error('Error:', error);
-});
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 
 /*-------------------------------------------------------------------Register New User----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
