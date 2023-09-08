@@ -120,13 +120,22 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       body: JSON.stringify(formsData),
     })
-      .then((response) => {return response.json()})
+      .then((response) => { return response.json() })
       .then((data) => {
-        console.log('Successful Login', data);
-        window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html';
+        if (data !== null) {
+          if (data.message) {
+            console.log('Login message:', data.message);
+          }
+
+          if (data.token) {
+            console.log('Received token:', data.token);
+          }
+
+          window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html';
+        }
       })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  });
+  })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 });
