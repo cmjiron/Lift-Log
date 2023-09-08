@@ -103,29 +103,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /*---------------------------------------------------------------------------Login------------------------------------------------------------------------------------- */
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('loginForm').addEventListener('click', function (e) {
+    e.preventDefault();
 
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-  // Send the login data to the server for authentication
-  fetch('/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ username, password }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        window.location.href = '/';
-      } else {
-        console.log('Error logging in');
-      }
+    // Send the login data to the server for authentication
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
     })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          window.location.href = '/';
+        } else {
+          console.log('Error logging in');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
 });
