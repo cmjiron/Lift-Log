@@ -120,10 +120,9 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        window.location.href = './index.html';
+        window.location.href = '/';
       } else {
-        // Display an error message
-        document.getElementById('message').textContent = data.message;
+        console.log('Error logging in');
       }
     })
     .catch((error) => {
