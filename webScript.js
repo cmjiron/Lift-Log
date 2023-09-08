@@ -104,17 +104,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*---------------------------------------------------------------------------Login------------------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
   const loginButton = document.getElementById('loginButton');
   loginButton.addEventListener('click', function () {
-    // Send the login data to the server for authentication
+
+    const formsData = [];
+    const form = document.getElementById('loginForm');
+    const formData = new FormData(form);
+    const username = formData.get('username');
+    const password = formData.get('password');
+    formsData.push({ username, password });
+
     fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({formsData}),
     })
       .then((response) => response.json())
       .then((data) => {
