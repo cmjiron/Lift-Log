@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginButton = document.getElementById('loginButton');
   loginButton.addEventListener('click', function () {
     // Send the login data to the server for authentication
-    fetch('/login', {
+    fetch('http://localhost:3000/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          window.location.href = '/';
+          window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html';
         } else {
           console.log('Error logging in');
         }
