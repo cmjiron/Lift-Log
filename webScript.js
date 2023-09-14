@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
-
   createNewWorkoutButton.addEventListener('click', function () {
     const formsData = [];
     const ulElement = document.getElementById('exerciseList');
@@ -71,16 +70,13 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
       });
   });
-})
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+});
 
 /*-------------------------------------------------------------------Register New User----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   const createAccountButton = document.getElementById('createAccountButton');
-
-  createAccountButton.addEventListener('click', function () {
+  createAccountButton.addEventListener('click', function (event) {
+    event.preventDefault();
     const formsData = [];
     const form = document.getElementById('registerForm');
     const formData = new FormData(form);
@@ -110,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
 /*---------------------------------------------------------------------------Login------------------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   const loginButton = document.getElementById('loginButton');
-  loginButton.addEventListener('click', function () {
-
+  loginButton.addEventListener('click', function (event) {
+    event.preventDefault();
     const formsData = [];
     const form = document.getElementById('loginForm');
     const formData = new FormData(form);
@@ -126,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       body: JSON.stringify(formsData),
     })
-      .then((response) => { return response.json() })
+      .then((response) => response.json())
       .then((data) => {
         if (data !== null) {
           if (data.message) {
@@ -140,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html'; // Replace with your desired URL
         }
       })
-  })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
 });
