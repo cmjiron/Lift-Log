@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 });
 
+/*-------------------------------------------------------------------Create New Workout----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   const createNewWorkoutButton = document.getElementById('saveWorkoutButton');
   createNewWorkoutButton.addEventListener('click', function () {
@@ -52,10 +53,12 @@ document.addEventListener('DOMContentLoaded', function () {
       formsData.push({ exercise, sets, reps });
     });
 
+    const token = localStorage.getItem('jwtToken');
     fetch('http://localhost:3000/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
       },
       body: JSON.stringify(formsData),
     })
@@ -131,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           if (data.token) {
             console.log('Received token:', data.token);
+            localStorage.setItem('jwtToken', data.token);
           }
 
           window.location.href = 'https://cmjiron.github.io/Lift-Log/index.html'; // Replace with your desired URL
