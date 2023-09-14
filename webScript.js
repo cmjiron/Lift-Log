@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const token = localStorage.getItem('jwtToken');
+    console.log('JWT Token:', token);
     fetch('http://localhost:3000/submit', {
       method: 'POST',
       headers: {
