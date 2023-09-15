@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
   createNewWorkoutButton.addEventListener('click', function () {
     const formsData = [];
     const ulElement = document.getElementById('exerciseList');
+    const workoutTitle = document.getElementById('workoutTitle').value;
     const forms = ulElement.querySelectorAll('form');
     forms.forEach((form) => {
       const formData = new FormData(form);
@@ -52,16 +53,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const reps = formData.get('reps');
       formsData.push({ exercise, sets, reps });
     });
+    const workoutData = {workoutTitle, formsData};
 
     const token = localStorage.getItem('jwtToken');
-    console.log('JWT Token:', token);
     fetch('http://localhost:3000/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token,
       },
-      body: JSON.stringify(formsData),
+      body: JSON.stringify(workoutData),
     })
       .then((response) => {
         console.log(response);
