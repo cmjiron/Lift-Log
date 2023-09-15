@@ -222,6 +222,7 @@ section button:hover {
     margin: 20px;
     padding: 20px;
     font-size: large;
+    display: inline-block;
 }
 
 .yourWorkouts button:hover {
