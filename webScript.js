@@ -96,7 +96,7 @@ if (token) {
       // Loop through the data and create a button for each item
       data.items.forEach((item) => {
         const button = document.createElement('button');
-        button.textContent = item.name; // Set the button label using the data
+        button.textContent = item.title; // Set the button label using the data
         savedWorkoutsButtonContainer.appendChild(button); // Append the button to the container
       });
     })
