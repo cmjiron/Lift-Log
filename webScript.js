@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const reps = formData.get('reps');
       formsData.push({ exercise, sets, reps });
     });
-    const workoutData = {workoutTitle, formsData};
+    const workoutData = { workoutTitle, formsData };
 
     const token = localStorage.getItem('jwtToken');
     fetch('http://localhost:3000/submit', {
@@ -76,6 +76,39 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
+
+/*-------------------------------------------------------------------Get Saved Workouts----------------------------------------------------------------------------- */
+const token = localStorage.getItem('jwtToken'); // Retrieve the JWT token from where you store it (e.g., local storage)
+
+if (token) {
+  fetch('http://localhost:3000/savedWorkouts', {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + token, // Include the JWT token in the headers
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the received data (items related to the signed-in user)
+      console.log('Received items:', data.items);
+      const savedWorkoutsButtonContainer = document.getElementById('savedWorkoutsButtonContainer');
+
+      // Loop through the data and create a button for each item
+      data.items.forEach((item) => {
+        const button = document.createElement('button');
+        button.textContent = item.name; // Set the button label using the data
+        savedWorkoutsButtonContainer.appendChild(button); // Append the button to the container
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+} else {
+  // Handle the case where the user is not authenticated or the token is missing
+  console.error('User not authenticated');
+}
+
+
 
 /*-------------------------------------------------------------------Register New User----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {

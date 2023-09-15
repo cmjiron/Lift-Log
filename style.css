@@ -213,6 +213,22 @@ section button:hover {
     font-size: large;
 }
 
+.yourWorkouts button {
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 20px;
+    font-size: large;
+    display: block;
+}
+
+.yourWorkouts button:hover {
+    background-color: #a3a3a3;
+    color: white;
+}
+
 .workoutOptions {
     display: flex;
     justify-content: center;
@@ -408,7 +424,7 @@ h2 {
     color: white;
 }
 
-.accountField button a{
+.accountField button a {
     text-decoration: none;
     color: white;
 }
@@ -417,7 +433,8 @@ h2 {
     background-color: gray;
 }
 
-.accountField #loginButton, #createAccountButton {
+.accountField #loginButton,
+#createAccountButton {
     background-color: green;
 }
 
@@ -426,17 +443,17 @@ h2 {
     cursor: pointer;
 }
 
-.accountField #loginButton:hover, #createAccountButton:hover {
+.accountField #loginButton:hover,
+#createAccountButton:hover {
     background-color: darkgreen;
     cursor: pointer;
 }
 
-#registerHeading{
+#registerHeading {
     padding-top: 50px;
 }
 
-#registerForm{
+#registerForm {
     text-align: left;
     display: inline-block;
 }
-
